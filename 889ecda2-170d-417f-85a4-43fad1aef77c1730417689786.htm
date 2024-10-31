@@ -1,0 +1,411 @@
+<html><head><base href="https://websim.ai/"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websim - Profile Guide</title>
+<style>
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(to bottom right, #f0f4ff, #e6eeff);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  h1, h2, h3 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.8em;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  h3 {
+    font-size: 1.4em;
+    margin-top: 30px;
+  }
+  p {
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: perspective(1000px) rotateX(0deg);
+  }
+  .card:hover {
+    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
+  }
+  .tip, .warning, .example, .callout {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .tip {
+    background: linear-gradient(135deg, #e6f9ff, #d9f2ff);
+  }
+  .warning {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 5px solid var(--accent-color);
+  }
+  .example {
+    background: linear-gradient(135deg, #f2ffe6, #e6ffd9);
+  }
+  .callout {
+    background: linear-gradient(135deg, #fff2e6, #ffe6d9);
+  }
+  code {
+    background-color: #f7f9fa;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  .footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #7f8c8d;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+  }
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .nav-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .nav-link:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: var(--accent-color);
+  }
+  .gradient-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 8px;
+    padding: 20px;
+    color: #e94560;
+    font-weight: 500;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .italic {
+    font-style: italic;
+    color: #7f8c8d;
+  }
+  #darkModeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  #darkModeToggle:hover {
+    background-color: var(--accent-color);
+  }
+  body.websimDarkmode {
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+  }
+  body.websimDarkmode .card,
+  body.websimDarkmode .nav-links {
+    background-color: #16213e;
+    color: #e0e0e0;
+  }
+  body.websimDarkmode .example {
+    background-color: #2c3e50;
+    border-color: #34495e;
+  }
+  body.websimDarkmode code {
+    background-color: #2c3e50;
+    border-color: #34495e;
+    color: #e0e0e0;
+  }
+  body.websimDarkmode h1, 
+  body.websimDarkmode h2, 
+  body.websimDarkmode h3 {
+    color: #e0e0e0;
+  }
+  body.websimDarkmode a {
+    color: #3498db;
+  }
+  body.websimDarkmode a:hover {
+    color: #e74c3c;
+  }
+  body.websimDarkmode .tip {
+    background: linear-gradient(135deg, #162436, #1e2e42);
+    color: #e0e0e0;
+  }
+  body.websimDarkmode .example {
+    background: linear-gradient(135deg, #1e2e42, #243850);
+    color: #e0e0e0;
+  }
+  body.websimDarkmode .warning {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #e0e0e0;
+  }
+  body.websimDarkmode .callout {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #e0e0e0;
+  }
+  body.websimDarkmode .footer {
+    color: #bdc3c7;
+  }
+  body.websimDarkmode #toc {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #e0e0e0;
+  }
+  body.websimDarkmode #toc a {
+    color: #3498db;
+  }
+  body.websimDarkmode #toc a:hover {
+    color: #e74c3c;
+  }
+  body.websimDarkmode .italic {
+    color: #bdc3c7;
+  }
+  .websim-rainbow {
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, 
+      rgb(51, 102, 204) 0%, rgb(51, 102, 204) 20%, 
+      rgb(255, 0, 0) 20%, rgb(255, 0, 0) 40%,
+      rgb(255, 255, 0) 40%, rgb(255, 255, 0) 50%, 
+      rgb(0, 153, 0) 50%, rgb(0, 153, 0) 60%,
+      rgb(255, 255, 255) 60%, rgb(255, 255, 255) 70%,
+      rgb(51, 102, 204) 70%, rgb(51, 102, 204) 90%, 
+      rgb(255, 0, 0) 90%, rgb(255, 0, 0) 100%);
+    border-image-slice: 1;
+  }
+  blockquote {  
+    margin: 1.5em 0;
+    padding: 1em 20px;
+    position: relative;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+    text-indent: 20px;
+    border-left: 6px solid #6E99CB;
+  }
+  blockquote p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.1em;
+  }
+  blockquote cite {
+    display: block;
+    text-align: left; 
+    margin-top: 10px;
+    font-style: normal;
+  }
+  .fancy-text {
+    font-size: 10px;
+    line-height: 1.2;
+    color: #666;
+    font-style: italic;
+    border-top: 1px solid #ccc;
+    padding-top: 10px; 
+    margin-top: 20px;
+  }
+  .rainbow-quote {
+    background: linear-gradient(45deg, 
+      rgb(51, 102, 204) 0%, rgb(51, 102, 204) 20%, 
+      rgb(255, 0, 0) 20%, rgb(255, 0, 0) 40%,
+      rgb(255, 255, 0) 40%, rgb(255, 255, 0) 50%, 
+      rgb(0, 153, 0) 50%, rgb(0, 153, 0) 60%,
+      rgb(255, 255, 255) 60%, rgb(255, 255, 255) 70%,
+      rgb(51, 102, 204) 70%, rgb(51, 102, 204) 90%, 
+      rgb(255, 0, 0) 90%, rgb(255, 0, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 5s ease infinite;
+    background-size: 400% 400%;
+  }
+  @keyframes rainbow { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  #toc {
+    background: linear-gradient(135deg, #f5f5f5, #eeeeee);
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  #toc a {
+    color: #0066cc;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  #toc a:hover {
+    color: #003366; 
+    border-bottom: none;
+  }
+  #toc ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  #toc > ul {
+    padding-left: 0;
+  }
+  #toc li {
+    margin-bottom: 10px;
+  }
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #3366cc, #254e8c);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 100;
+    text-shadow: none;
+  }
+  #back-to-top:hover {
+    background: linear-gradient(135deg, #254e8c, #1a3864);
+  }
+  #back-to-top.show {
+    opacity: 1;
+  }
+</style>
+</head><body>
+<div class="container">
+  <h1>Websim - Profile Guide</h1>
+  
+  <button id="darkModeToggle">🌓</button>
+
+  <div id="toc" class="websim-rainbow">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#profile-benefits">1. Benefits of a Websim Profile</a></li>
+      <li><a href="#how-to-make">2. Creating a Profile Page</a></li>
+      <li><a href="#display-projects">3. Displaying Projects and Likes</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2 id="profile-benefits">1. Benefits of a Websim Profile</h2>
+    
+    <h3 id="what-is-useful"><b>What is a profile page useful for?</b></h3>
+    <p>A Websim profile page can showcase your projects, contain links to your business or social media, and artistically convey your personality and interests to any visitors. Think of it like your digital business card!</p>
+    
+    <h3 id="full-customization"><b>Full Customization</b></h3>
+    <p>One of the most directly editable profile pages in the digital environment right now, similar to bygone platforms like myspace, Websim allows you to use just about anything HTML to make your ultimate digital profile. add in visuals, music, and anything else you can think of to make this page share who you are with your fellow users. This is more similar to creating your own personal digital space than creating a boilerplate social media profile with just basic customization. Be creative, and try things out!</p>
+  </div>
+
+  <div class="card">
+    <h2 id="how-to-make">2. Creating a Profile Page</h2>
+    
+    <h3 id="from-scratch"><b>Making a profile page from scratch</b></h3>
+    <p>Any Websim page can be a profile. Simply click the gear icon in your projects sidebar, and set the text of the link section to just "profile". Unless you already have a page set as your profile, this will send users to this page whenever they click your profile picture, or type your @ username into the prompt bar. you'll notice the link to said project change to 'Websim.ai/@username'. This means your profile page can be as unique and interactive as any other incredible Websim page!</p>
+    
+    <img src="/a/d688d5a3-0334-4acd-be56-7321f92f08ac" alt="Screenshot showing Kat's Profile settings with options to edit title, URL, and delete the profile" style="max-width: 100%; height: auto;">
+    
+    <h3 id="remixing"><b>Remixing an existing profile page (Easier!)</b></h3>
+    <p>One easy way to create a profile is to simply remix an existing profile. Check out existing examples like <a href="https://websim.ai/@kat">my profile</a>, <a href="https://websim.ai/@cubeycreator">CubeyCreator's profile</a> or <a href="https://websim.ai/@mh3">mh3's profile</a> and prompt onto it with something like, "Make this a profile page for user @yourusername instead". Starting from an existing profile should give you a good starting point for the page, and in some instances, this may be all you need to do in order to get a fully functional profile page showing all of your data.</p>
+  </div>
+
+  <div class="card">
+    <h2 id="display-projects">3. Displaying Projects and Likes</h2>
+    
+    <h3 id="websim-api"><b>Websim Metadata API experimental feature</b></h3>
+    <p>If you go to your Websim settings through the top right 3 dots menu, you can enable experimental features in advanced settings. Doing this will allow you to enable 'Websim Metadata API', which can return information like your projects, followers, following, profile pictures and more. Simply enable that checkbox and prompt something like 'Show me the followers of user @yourusername. You can add more detail and there is more data stored in the API than just those examples, but this is always in flux and still experimental so it will take testing to discover all the possibilities.</p>
+
+    <div class="tip websim-rainbow">
+      <strong>Note:</strong> For a more in depth look, check out <a href="https://websim.ai/p/nee4yk75esfndlndnuf0">Websim Metadata API Documentation by user mh3</a>. This user-made guide dives into documenting the possible uses and accessible information using the experimental Websim Metadata API feature.
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Join our <a href="https://discord.gg/websim">Websim Discord community</a>.</p>
+  </div>
+</div>
+
+<button id="back-to-top" title="Go to top">Back to Top</button>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const backToTopButton = document.getElementById('back-to-top');
+
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('websimDarkmode');
+    if (body.classList.contains('websimDarkmode')) {
+      darkModeToggle.textContent = '☀️';
+    } else {
+      darkModeToggle.textContent = '🌓';
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  });
+
+  backToTopButton.addEventListener('click', () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
+</script>
+</body></html>
